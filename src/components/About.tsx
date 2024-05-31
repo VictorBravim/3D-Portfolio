@@ -65,17 +65,19 @@ const About: React.FC<AboutProps> = ({ language }) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (skillsRef.current) {
+            if (typeof window !== 'undefined' && skillsRef.current) {
                 const scrollPosition = window.scrollY;
                 skillsRef.current.style.transform = `translateX(${scrollPosition * -0.2}px)`;
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }
     }, []);
 
     return (

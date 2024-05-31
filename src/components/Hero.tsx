@@ -6,18 +6,21 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ language }) => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
 
-        window.addEventListener('resize', handleResize);
+        if (typeof window !== 'undefined') {
+            setIsMobile(window.innerWidth <= 768);
+            window.addEventListener('resize', handleResize);
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
     }, []);
 
     return (

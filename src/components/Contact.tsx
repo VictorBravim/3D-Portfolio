@@ -7,6 +7,12 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function Contato() {
+    const isBrowser = typeof window !== 'undefined';
+
+    if (!isBrowser) {
+        return null;
+    }
+
     emailjs.init('TvVDzHFLwBkyukoGy');
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

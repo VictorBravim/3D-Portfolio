@@ -19,16 +19,18 @@ export default function Nav() {
     };
 
     const handleScroll = () => {
-        const scrollPosition = window.scrollY;
+        if (typeof window !== 'undefined') {
+            const scrollPosition = window.scrollY;
 
-        if (scrollPosition < 600) {
-            setActiveSection('hero');
-        } else if (scrollPosition >= 600 && scrollPosition < 1400) {
-            setActiveSection('about');
-        } else if (scrollPosition >= 1400 && scrollPosition < 2200) {
-            setActiveSection('projects');
-        } else {
-            setActiveSection('contact');
+            if (scrollPosition < 600) {
+                setActiveSection('hero');
+            } else if (scrollPosition >= 600 && scrollPosition < 1400) {
+                setActiveSection('about');
+            } else if (scrollPosition >= 1400 && scrollPosition < 2200) {
+                setActiveSection('projects');
+            } else {
+                setActiveSection('contact');
+            }
         }
     };
 
