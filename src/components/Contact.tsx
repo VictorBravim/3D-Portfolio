@@ -7,6 +7,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function Contato() {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    
     const isBrowser = typeof window !== 'undefined';
 
     if (!isBrowser) {
@@ -29,11 +34,6 @@ export default function Contato() {
 
         e.currentTarget.reset();
     };
-
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
 
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
