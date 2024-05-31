@@ -61,12 +61,18 @@ const projects = [
     },
 ];
 
-const Projects: React.FC = () => {
-    const { ref, inView } = typeof window !== 'undefined' ? useInView({
+const InViewComponent = () => {
+    const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.1,
-    }) : { ref: null, inView: false };
+    });
 
+    return { ref, inView };
+};
+
+const Projects: React.FC = () => {  
+    const { ref, inView } = InViewComponent();
+    
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: {
