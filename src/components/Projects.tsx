@@ -3,8 +3,6 @@
 import React from 'react';
 import { FaGithub, FaFigma, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaAngular, FaVuejs, FaBootstrap } from 'react-icons/fa';
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import filmflix from '@/assets/filmflix.webp';
 import norishi from '@/assets/Norishi.webp';
@@ -61,48 +59,13 @@ const projects = [
     },
 ];
 
-const InViewComponent = () => {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
-
-    return { ref, inView };
-};
-
 const Projects: React.FC = () => {  
-    const { ref, inView } = InViewComponent();
-    
-    const containerVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                when: "beforeChildren",
-                staggerChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    };
-
     return (
         <div id='projects' className="bg-black text-white p-10 py-32">
             <div className="container mx-auto">
-                <motion.div
-                    ref={ref}
-                    initial="hidden"
-                    animate={inView ? 'visible' : 'hidden'}
-                    variants={containerVariants}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-                >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {projects.map((project, index) => (
-                        <motion.div key={index} variants={itemVariants} className="relative group">
+                        <div key={index} className="relative group">
                             <Image
                                 src={project.imageUrl}
                                 alt={project.title}
@@ -137,9 +100,9 @@ const Projects: React.FC = () => {
                                     )}
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </div>
     );

@@ -6,8 +6,6 @@ import logo from '@/assets/Logo.webp';
 import { FaGithub, FaLinkedin, FaInstagram, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaGit, FaSass, FaAngular, FaVuejs, FaBootstrap } from 'react-icons/fa';
 import { SiTypescript, SiNextdotjs, SiTailwindcss, SiFirebase, SiPhp, SiAdobephotoshop, SiFigma } from 'react-icons/si';
 import SkillsChart from './SkillsChart';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 interface AboutProps {
     language: string;
@@ -36,33 +34,6 @@ const skills = [
 const About: React.FC<AboutProps> = ({ language }) => {
     const skillsRef = useRef<HTMLDivElement>(null);
 
-    const controls = useAnimation();
-    const { ref: aboutRef, inView: aboutInView } = useInView({ triggerOnce: true, threshold: 0.1 });
-
-    useEffect(() => {
-        if (aboutInView) {
-            controls.start('visible');
-        }
-    }, [controls, aboutInView]);
-
-    const containerVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                when: "beforeChildren",
-                staggerChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    };
-
     useEffect(() => {
         const handleScroll = () => {
             if (typeof window !== 'undefined' && skillsRef.current) {
@@ -83,14 +54,8 @@ const About: React.FC<AboutProps> = ({ language }) => {
     return (
         <div id='about' className="bg-black text-white py-40 px-5 md:px-20">
             <div className="container mx-auto flex flex-col space-y-10">
-                <motion.div
-                    ref={aboutRef}
-                    initial="hidden"
-                    animate={controls}
-                    variants={containerVariants}
-                    className='flex flex-col lg:flex-row'
-                >
-                    <motion.div variants={itemVariants} className="flex flex-col w-full lg:w-1/2 mb-10">
+                <div className='flex flex-col lg:flex-row'>
+                    <div className="flex flex-col w-full lg:w-1/2 mb-10">
                         <div className="flex flex-col md:flex-row items-center md:mr-8">
                             <Image src={logo} alt="Victor Bravim" width={180} height={150} className="rounded-full mb-4 md:mb-0" />
                             <div className="text-center md:text-left md:ml-8">
@@ -98,16 +63,16 @@ const About: React.FC<AboutProps> = ({ language }) => {
                                 <p className="text-lg">Front-End Developer</p>
                                 <p className="text-lg mb-2">UI Designer</p>
                                 <div className="flex justify-left gap-4 text-3xl">
-                                    <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
+                                    <a href="https://github.com/VictorBravim" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
                                         <FaGithub />
                                     </a>
-                                    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
+                                    <a href="https://www.linkedin.com/in/VictorBravim/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
                                         <FaLinkedin />
                                     </a>
-                                    <a href="https://twitter.com/your-twitter" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
+                                    <a href="https://www.instagram.com/victorbravim_/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
                                         <FaInstagram />
                                     </a>
-                                    <a href="https://twitter.com/your-twitter" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
+                                    <a href="https://www.figma.com/@VictorBravim" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
                                         <SiFigma />
                                     </a>
                                 </div>
@@ -121,12 +86,17 @@ const About: React.FC<AboutProps> = ({ language }) => {
                                     "Hello! I'm Victor Bravim, a 19-year-old front-end developer from Lorena, SP. I have experience in JavaScript, TypeScript, PHP, and worked with frameworks like Next.js, React, Vue.js, and Angular. I also master Bootstrap and have experience in creating landing pages and websites using MongoDB and Firebase. Additionally, I have skills in Node.js, SQL, Git, UI design using Figma and Photoshop, and basic knowledge in 3D modeling in Spline."
                                 )}
                             </p>
+                            <div className='w-full flex flex-row items-center mb-4'>
+                                <a href="/CV.pdf" download="CV.pdf" aria-label="Baixar meu currículo em PDF">
+                                    <h1 className='font-bold text-2xl pr-2' style={{ textShadow: '1px 0 12px rgba(0, 0, 0, 0.6)' }}>Baixar CV</h1>
+                                </a>
+                            </div>
                         </div>
-                    </motion.div>
-                    <motion.div variants={itemVariants} className='w-full lg:w-1/2'>
+                    </div>
+                    <div className='w-full lg:w-1/2'>
                         <SkillsChart />
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
                 <div className="relative w-full overflow-hidden mb-10">
                     <div ref={skillsRef} className="flex w-full gap-4 text-6xl whitespace-nowrap">
                         {skills.concat(skills).map((icon, index) => (

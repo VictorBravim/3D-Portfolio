@@ -12,16 +12,16 @@ export default function Footer() {
         >
             <div className="container mx-auto flex justify-center lg:justify-between items-center">
                 <div className="hidden lg:flex gap-4">
-                    <a href="https://github.com/seu_usuario" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/VictorBravim" target="_blank" rel="noopener noreferrer">
                         <FaGithub className="text-2xl hover:text-gray-400" />
                     </a>
-                    <a href="https://linkedin.com/in/seu_perfil" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/VictorBravim/" target="_blank" rel="noopener noreferrer">
                         <FaLinkedin className="text-2xl hover:text-gray-400" />
                     </a>
-                    <a href="https://instagram.com/seu_perfil" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/victorbravim_/" target="_blank" rel="noopener noreferrer">
                         <FaInstagram className="text-2xl hover:text-gray-400" />
                     </a>
-                    <a href="https://figma.com/seu_perfil" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.figma.com/@victorbravim" target="_blank" rel="noopener noreferrer">
                         <FaFigma className="text-2xl hover:text-gray-400" />
                     </a>
                 </div>
