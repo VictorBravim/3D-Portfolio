@@ -1,11 +1,11 @@
-// Home.tsx
+// Page.tsx
 import React from 'react';
 import Nav from '@/components/Nav';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
-const Home: React.FC = () => {
+const Page: React.FC = () => {
     return (
         <div>
             <Nav />
@@ -16,4 +16,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default Page;
