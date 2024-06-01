@@ -97,11 +97,9 @@ const About: React.FC<AboutProps> = ({ language }) => {
                         <SkillsChart />
                     </div>
                 </div>
-
                 <div className="relative w-full overflow-hidden skills-container">
-                    <div className="skills-overlay"></div> {/* Camada degradê */}
+                    <div className="skills-overlay"></div> 
                     <div ref={skillsRef} className="flex w-full gap-4 text-6xl whitespace-nowrap skills-icons">
-                        {/* Ícones de habilidades */}
                         {skills.concat(skills).map((icon, index) => (
                             <span key={index} className="hover:text-gray-400 transition duration-300">
                                 {icon}
@@ -109,7 +107,6 @@ const About: React.FC<AboutProps> = ({ language }) => {
                         ))}
                     </div>
                 </div>
-
             </div>
         </div>
     );
