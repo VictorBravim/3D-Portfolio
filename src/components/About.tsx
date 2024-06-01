@@ -52,12 +52,12 @@ const About: React.FC<AboutProps> = ({ language }) => {
     }, []);
 
     return (
-        <div id='about' className="bg-black text-white py-40 px-5 md:px-20">
+        <div id='about' className="bg-black text-white py-40 pt-48 px-5 md:px-20">
             <div className="container mx-auto flex flex-col space-y-10">
-                <div className='flex flex-col lg:flex-row'>
+                <div className='flex flex-col lg:flex-row mb-12'>
                     <div className="flex flex-col w-full lg:w-1/2 mb-10">
                         <div className="flex flex-col md:flex-row items-center md:mr-8">
-                            <Image src={logo} alt="Victor Bravim" width={180} height={150} className="rounded-full mb-4 md:mb-0" />
+                        <Image src={logo} alt="Victor Bravim" className="rounded-full mb-4 md:mb-0" style={{ height: "150px", width: "auto" }} />
                             <div className="text-center md:text-left md:ml-8">
                                 <h1 className="text-4xl font-bold mb-1">Victor Bravim</h1>
                                 <p className="text-lg">Front-End Developer</p>
@@ -86,19 +86,22 @@ const About: React.FC<AboutProps> = ({ language }) => {
                                     "Hello! I'm Victor Bravim, a 19-year-old front-end developer from Lorena, SP. I have experience in JavaScript, TypeScript, PHP, and worked with frameworks like Next.js, React, Vue.js, and Angular. I also master Bootstrap and have experience in creating landing pages and websites using MongoDB and Firebase. Additionally, I have skills in Node.js, SQL, Git, UI design using Figma and Photoshop, and basic knowledge in 3D modeling in Spline."
                                 )}
                             </p>
-                            <div className='w-full flex flex-row items-center mb-4'>
+                            <div className='w-full flex justify-center lg:justify-start items-center mt-4'>
                                 <a href="/CV.pdf" download="CV.pdf" aria-label="Baixar meu currículo em PDF">
-                                    <h1 className='font-bold text-2xl pr-2' style={{ textShadow: '1px 0 12px rgba(0, 0, 0, 0.6)' }}>Baixar CV</h1>
+                                    <h1 className='border-b border-white text-2xl' style={{ textShadow: '1px 0 12px rgba(0, 0, 0, 0.6)' }}>Baixar CV</h1>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div className='w-full lg:w-1/2'>
+                    <div className='w-full lg:w-[75%] flex items-center justify-center lg:justify-end'>
                         <SkillsChart />
                     </div>
                 </div>
-                <div className="relative w-full overflow-hidden mb-10">
-                    <div ref={skillsRef} className="flex w-full gap-4 text-6xl whitespace-nowrap">
+
+                <div className="relative w-full overflow-hidden skills-container">
+                    <div className="skills-overlay"></div> {/* Camada degradê */}
+                    <div ref={skillsRef} className="flex w-full gap-4 text-6xl whitespace-nowrap skills-icons">
+                        {/* Ícones de habilidades */}
                         {skills.concat(skills).map((icon, index) => (
                             <span key={index} className="hover:text-gray-400 transition duration-300">
                                 {icon}
@@ -106,6 +109,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
                         ))}
                     </div>
                 </div>
+
             </div>
         </div>
     );

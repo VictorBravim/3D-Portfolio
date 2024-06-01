@@ -69,10 +69,7 @@ const Projects: React.FC = () => {
                             <Image
                                 src={project.imageUrl}
                                 alt={project.title}
-                                layout="responsive"
-                                width={500}
-                                height={500}
-                                className="object-cover grayscale group-hover:grayscale-0 transition duration-300"
+                                className="w-full h-70 object-cover object-center group-hover:grayscale-0 transition duration-300"
                             />
                             <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center">
                                 <h3 className="text-2xl font-bold mb-4">{project.title}</h3>

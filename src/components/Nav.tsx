@@ -1,6 +1,5 @@
 // Nav.tsx
 'use client'
-import { motion } from 'framer-motion';
 import { HiX } from "react-icons/hi";
 import { FiMenu } from "react-icons/fi";
 import { useState, useEffect } from 'react';
@@ -91,15 +90,10 @@ export default function Nav() {
                     </button>
                 </div>
             </div>
-            <motion.nav
-                className="bg-transparent px-6 lg:px-0 py-10 fixed w-full lg:w-4/5 left-1/2 transform -translate-x-1/2 top-0 lg:rounded-b-xl z-10"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
+            <nav className="bg-transparent px-6 lg:px-0 py-10 fixed w-full lg:w-4/5 left-1/2 transform -translate-x-1/2 top-0 lg:rounded-b-xl z-10">
                 <div className="max-w-8xl mx-auto flex justify-between items-center">
                     <div className="flex items-center flex-shrink-0 text-gray-custom">
-                        <Image src={logo} alt="Logo" width={35} height={50} loading="lazy" className="mr-2 ml-4 lg:ml-0" />
+                        <Image src={logo} alt="Logo" width={35} height={50} loading="lazy" className="w-auto h-auto mr-2 ml-4 lg:ml-0" />
                     </div>
                     <div className="hidden lg:block">
                         <div className="flex items-center">
@@ -129,27 +123,22 @@ export default function Nav() {
                             </button>
                         </div>
                     </div>
-                    <div className="flex items-center flex-shrink-0 text-white">
+                    <div className="hidden lg:flex items-center flex-shrink-0 text-white">
                         <button className="mr-4" onClick={toggleLanguage}>
                             {language === 'PT' ? 'EN' : 'PT'}
                         </button>
                     </div>
                     <div className="block lg:hidden">
-                        <motion.button
-                            className="flex items-center mx-3 my-2 rounded text-gray-custom hover
-                                "
+                        <button
+                            className="flex items-center mx-3 my-2 rounded text-gray-custom hover"
                             type="button"
                             onClick={toggleMenu}
-                            aria-label={menuOpen ? "Fechar Menu" : "Abrir Menu"}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.5 }}
-                        >
+                            aria-label={menuOpen ? "Fechar Menu" : "Abrir Menu"}>
                             {menuOpen ? <HiX className="h-8 w-8" /> : <FiMenu className="h-8 w-8" />}
-                        </motion.button>
+                        </button>
                     </div>
                 </div>
-            </motion.nav>
+            </nav>
             <Hero language={language} />
             <About language={language} />
         </div>
