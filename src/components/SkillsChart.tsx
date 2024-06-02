@@ -11,7 +11,7 @@ const SkillsChart: React.FC = () => {
         datasets: [
             {
                 label: 'Skills',
-                data: [20, 15, 9, 17, 12, 9, 7, 8, 13, 10, 7, 9, 18, 6, 15],
+                data: [82, 71, 55, 85, 73, 70, 65, 72, 80, 60, 75, 72, 91, 58, 79],
                 backgroundColor: '#fff',
                 borderColor: '#ffffff',
                 borderWidth: 1,

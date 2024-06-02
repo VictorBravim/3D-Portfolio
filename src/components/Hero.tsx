@@ -1,12 +1,15 @@
 // Hero.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 
 interface HeroProps {
     language: string;
 }
 
+const MobileIframe = lazy(() => import('./MobileIframe'));
+const DesktopIframe = lazy(() => import('./DesktopIframe'));
+
 const Hero: React.FC<HeroProps> = ({ language }) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -25,25 +28,15 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
 
     return (
         <div id='hero' className="relative flex justify-center items-center h-screen bg-black">
-            {isMobile ? (
-                <iframe 
-                    src='https://my.spline.design/untitledcopy-8e50161f2447a131e6cc910f59acead3/' 
-                    frameBorder='0' 
-                    width='100%' 
-                    height='100%' 
-                    className="absolute top-0 left-0 w-full h-full"
-                    loading="lazy"
-                ></iframe>
-            ) : (
-                <iframe 
-                    src='https://my.spline.design/untitled-3a40c92785ec96acc0872aa6f6c9934a/' 
-                    frameBorder='0' 
-                    width='100%' 
-                    height='100%' 
-                    className="absolute top-0 left-0 w-full h-full"
-                    loading="lazy"
-                ></iframe>
-            )}
+            <div className="absolute top-0 left-0 w-full h-full">
+                <Suspense fallback={
+                    <div className="flex justify-center items-center h-full w-full">
+                        <div className="loader"></div>
+                    </div>
+                }>
+                    {isMobile !== null && (isMobile ? <MobileIframe /> : <DesktopIframe />)}
+                </Suspense>
+            </div>
             <div className="absolute bottom-0 right-0 w-48 h-16 bg-black"></div>
         </div>
     );

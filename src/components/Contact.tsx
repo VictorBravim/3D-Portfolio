@@ -56,12 +56,20 @@ export default function Contato() {
     };
 
     return (
-        <div id="contact" className="bg-none py-20 h-full">
+        <div id="contact" ref={ref} className="bg-none py-20 h-full">
             <div className="w-full lg:w-4/5 bg-black p-12 mx-auto px-4">
                 <div className="flex flex-col lg:flex-row">
                     <div className='flex w-full lg:w-1/2'>
                         <div className='hidden lg:flex' style={{ position: 'relative', width: '100%', height: '100%' }}>
-                            <iframe src='https://my.spline.design/untitled-0016fc8c54d600c8f21f166056fa2a18/' frameBorder='0' width='100%' height='100%' className="w-full h-full"></iframe>
+                            {inView && (
+                                <iframe
+                                    src='https://my.spline.design/untitled-0016fc8c54d600c8f21f166056fa2a18/'
+                                    frameBorder='0'
+                                    width='100%'
+                                    height='100%'
+                                    className="w-full h-full"
+                                ></iframe>
+                            )}
                             <div style={{ position: 'absolute', bottom: 20, right: 20, width: '140px', height: '38px', backgroundColor: 'black' }}></div>
                         </div>
                     </div>
