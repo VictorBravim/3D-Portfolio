@@ -5,11 +5,11 @@ import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaFigma, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaAngular, FaVuejs, FaBootstrap } from 'react-icons/fa';
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import Image from 'next/image';
-import filmflix from '@/assets/filmflix.webp';
+import mymovies from '@/assets/mymovies.webp';
 import norishi from '@/assets/Norishi.webp';
-import energydrink from '@/assets/energydrink.webp';
+import exotics from '@/assets/exotics.webp';
 import webstore from '@/assets/webstore.webp'
-import vinil from '@/assets/vinylplay.webp';
+import cafty from '@/assets/cafty.webp';
 import arenax from '@/assets/arenax.webp';
 
 const projects = [
@@ -22,11 +22,12 @@ const projects = [
         repoUrl: 'https://github.com/VictorBravim/ArenaX',
     },
     {
-        title: 'Music Player',
-        description: 'Template Design',
-        imageUrl: vinil,
-        technologies: [<FaFigma key="figma" />],
-        designUrl: 'https://www.figma.com/community/file/1374876809455744591'
+        title: 'Cafty',
+        description: 'Landing Page',
+        imageUrl: cafty,
+        technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
+        liveUrl: 'https://cofty.vercel.app/',
+        repoUrl: 'https://github.com/VictorBravim/Cafty',
     },
     {
         title: 'WebStore',
@@ -37,11 +38,12 @@ const projects = [
         repoUrl: 'https://github.com/VictorBravim/WebStore',
     },
     {
-        title: 'Energy Drink',
-        description: 'Template Design',
-        imageUrl: energydrink,
-        technologies: [<FaFigma key="figma" />],
-        designUrl: 'https://www.figma.com/community/file/1373769409738713759'
+        title: 'Exotics',
+        description: 'Landing Page',
+        imageUrl: exotics,
+        technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
+        liveUrl: 'https://exotics.vercel.app/',
+        repoUrl: 'https://github.com/VictorBravim/Exotics',
     },
     {
         title: 'Norishi',
@@ -52,11 +54,12 @@ const projects = [
         repoUrl: 'https://github.com/VictorBravim/Norishi',
     },
     {
-        title: 'Movies Carousel',
-        description: 'Template Design',
-        imageUrl: filmflix,
-        technologies: [<FaFigma key="figma" />],
-        designUrl: 'https://www.figma.com/community/file/1373333973316635011'
+        title: 'MyMovies',
+        description: 'Single Page',
+        imageUrl: mymovies,
+        technologies: [<FaVuejs key="vue" />, <SiTypescript key="typescript" />, <SiTailwindcss key="tailwind" />],
+        liveUrl: 'https://my-movies-peach.vercel.app/',
+        repoUrl: 'https://github.com/VictorBravim/MyMovies',
     },
 ];
 
@@ -90,11 +93,6 @@ const Projects: React.FC = () => {
                                         {project.repoUrl && (
                                             <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="bg-white flex items-center text-black text-xl font-bold py-2 px-4">
                                                 <FaGithub />
-                                            </a>
-                                        )}
-                                        {project.designUrl && (
-                                            <a href={project.designUrl} target="_blank" rel="noopener noreferrer" className="bg-white flex items-center text-black text-xl font-bold py-2 px-4">
-                                                <FaFigma />
                                             </a>
                                         )}
                                     </div>

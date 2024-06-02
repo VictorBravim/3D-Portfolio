@@ -1,16 +1,9 @@
 // Footer.tsx
-'use client'
 import { FaGithub, FaLinkedin, FaInstagram, FaFigma } from 'react-icons/fa';
-import { useInView } from 'react-intersection-observer';
 
 export default function Footer() {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
-
     return (
-        <footer ref={ref} className={`bg-black text-white py-6 fade-in-section ${inView ? 'is-visible' : ''}`}>
+        <footer className="bg-black text-white py-6">
             <div className="container mx-auto flex justify-center lg:justify-between items-center">
                 <div className="hidden lg:flex gap-4">
                     <a href="https://github.com/VictorBravim" target="_blank" rel="noopener noreferrer">

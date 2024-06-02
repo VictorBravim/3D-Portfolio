@@ -75,12 +75,12 @@ const About: React.FC<AboutProps> = ({ language }) => {
                     <div className='flex flex-col lg:flex-row mb-12'>
                         <div className="flex flex-col w-full lg:w-1/2 mb-10">
                             <div className="flex flex-col md:flex-row items-center md:mr-8">
-                                <Image src={logo} alt="Victor Bravim" className="rounded-full mb-4 md:mb-0" style={{ height: "150px", width: "auto" }} />
+                                <Image src={logo} alt="Victor Bravim" className="rounded-full mb-4 md:mb-0" style={{ height: "175px", width: "auto" }} />
                                 <div className="text-center md:text-left md:ml-8">
                                     <h1 className="text-4xl font-bold mb-1">Victor Bravim</h1>
                                     <p className="text-lg">Front-End Developer</p>
                                     <p className="text-lg mb-2">UI Designer</p>
-                                    <div className="flex justify-left gap-4 text-3xl">
+                                    <div className="flex justify-center lg:justify-start gap-4 text-3xl">
                                         <a href="https://github.com/VictorBravim" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400 transition duration-300">
                                             <FaGithub />
                                         </a>
@@ -106,7 +106,13 @@ const About: React.FC<AboutProps> = ({ language }) => {
                                 </p>
                                 <div className='w-full flex justify-center lg:justify-start items-center mt-4'>
                                     <a href="/CV.pdf" download="CV.pdf" aria-label="Baixar meu currículo em PDF">
-                                        <h1 className='border-b border-white text-2xl' style={{ textShadow: '1px 0 12px rgba(0, 0, 0, 0.6)' }}>Baixar CV</h1>
+                                        <h1 className='border-b border-white text-2xl' style={{ textShadow: '1px 0 12px rgba(0, 0, 0, 0.6)' }}>
+                                        {language === 'PT' ? (
+                                            "Baixar CV"
+                                        ) : (
+                                            "Download CV"
+                                        )}
+                                        </h1>
                                     </a>
                                 </div>
                             </div>
