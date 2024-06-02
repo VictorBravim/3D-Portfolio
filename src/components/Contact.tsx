@@ -56,7 +56,7 @@ export default function Contato() {
     };
 
     return (
-        <div id="contact" ref={ref} className="bg-none py-20 h-full">
+        <div id="contact" ref={ref} className={`bg-none py-20 h-full fade-in-section ${inView ? 'is-visible' : ''}`}>
             <div className="w-full lg:w-4/5 bg-black p-12 mx-auto px-4">
                 <div className="flex flex-col lg:flex-row">
                     <div className='flex w-full lg:w-1/2'>
