@@ -17,7 +17,7 @@ const projects = [
         title: 'ArenaX',
         description: 'Landing Page',
         imageUrl: arenax,
-        technologies: [<FaAngular key="angular" />, [<SiTypescript key="typescript" />, <SiTailwindcss key="tailwind" />],
+        technologies: [<FaAngular key="angular" />, <SiTypescript key="typescript" />, <SiTailwindcss key="tailwind" />],
         liveUrl: 'https://arena-x-zeta.vercel.app/',
         repoUrl: 'https://github.com/VictorBravim/ArenaX',
     },
