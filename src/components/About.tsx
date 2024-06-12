@@ -1,12 +1,12 @@
 // About.tsx
 'use client';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import logo from '@/assets/Logo.webp';
-import { useInView } from 'react-intersection-observer';
 import { FaGithub, FaLinkedin, FaInstagram, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaGit, FaSass, FaAngular, FaVuejs, FaBootstrap } from 'react-icons/fa';
 import { SiTypescript, SiNextdotjs, SiTailwindcss, SiFirebase, SiPhp, SiAdobephotoshop, SiFigma } from 'react-icons/si';
 import SkillsChart from './SkillsChart';
+import FadeInSection from './FadeInSection';
 
 interface AboutProps {
     language: string;
@@ -32,22 +32,6 @@ const skills = [
     <SiFigma key="figma" />,
 ];
 
-const FadeInSection: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
-
-    return (
-        <div
-            ref={ref}
-            className={`fade-in-section ${inView ? 'is-visible' : ''}`}
-        >
-            {children}
-        </div>
-    );
-};
-
 const About: React.FC<AboutProps> = ({ language }) => {
     const skillsRef = useRef<HTMLDivElement>(null);
 
@@ -60,7 +44,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
         };
 
         if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', handleScroll, { passive: true });
 
             return () => {
                 window.removeEventListener('scroll', handleScroll);
@@ -107,11 +91,11 @@ const About: React.FC<AboutProps> = ({ language }) => {
                                 <div className='w-full flex justify-center lg:justify-start items-center mt-4'>
                                     <a href="/CV.pdf" download="CV.pdf" aria-label="Baixar meu currículo em PDF">
                                         <h1 className='border-b border-white text-2xl' style={{ textShadow: '1px 0 12px rgba(0, 0, 0, 0.6)' }}>
-                                        {language === 'PT' ? (
-                                            "Baixar CV"
-                                        ) : (
-                                            "Download CV"
-                                        )}
+                                            {language === 'PT' ? (
+                                                "Baixar CV"
+                                            ) : (
+                                                "Download CV"
+                                            )}
                                         </h1>
                                     </a>
                                 </div>

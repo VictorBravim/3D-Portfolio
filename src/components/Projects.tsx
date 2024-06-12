@@ -1,9 +1,9 @@
 // Projects.tsx
 'use client';
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
-import { FaGithub, FaFigma, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaAngular, FaVuejs, FaBootstrap } from 'react-icons/fa';
+import { FaGithub, FaAngular, FaVuejs } from 'react-icons/fa';
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
+import FadeInSection from './FadeInSection';
 import Image from 'next/image';
 import mymovies from '@/assets/mymovies.webp';
 import norishi from '@/assets/Norishi.webp';
@@ -102,22 +102,6 @@ const Projects: React.FC = () => {
                     ))}
                 </div>
             </div>
-        </div>
-    );
-};
-
-const FadeInSection: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { ref, inView } = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
-
-    return (
-        <div
-            ref={ref}
-            className={`fade-in-section ${inView ? 'is-visible' : ''}`}
-        >
-            {children}
         </div>
     );
 };

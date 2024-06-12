@@ -1,10 +1,10 @@
 // Contact.tsx
-'use client'
+'use client';
+import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useInView } from 'react-intersection-observer';
-import { useState } from 'react';
 
 export default function Contato() {
     const { ref, inView } = useInView({
@@ -68,6 +68,8 @@ export default function Contato() {
                                     width='100%'
                                     height='100%'
                                     className="w-full h-full"
+                                    loading="lazy"
+                                    title="iframe"
                                 ></iframe>
                             )}
                             <div style={{ position: 'absolute', bottom: 20, right: 20, width: '140px', height: '38px', backgroundColor: 'black' }}></div>

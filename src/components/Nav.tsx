@@ -39,7 +39,7 @@ export default function Nav() {
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
         handleScroll();
 
@@ -100,7 +100,7 @@ export default function Nav() {
                     <nav className="bg-transparent px-6 lg:px-0 py-10 fixed w-full lg:w-4/5 left-1/2 transform -translate-x-1/2 top-0 lg:rounded-b-xl z-10">
                         <div className="max-w-8xl mx-auto flex justify-between items-center">
                             <div className="flex items-center flex-shrink-0 text-gray-custom">
-                                <Image src={logo} alt="Logo" width={35} height={50} loading="lazy" className="w-auto h-auto mr-2 ml-4 lg:ml-0" />
+                                <Image src={logo} alt="Logo" width={35} height={50} priority className="w-auto h-auto mr-2 ml-4 lg:ml-0" />
                             </div>
                             <div className="hidden lg:block">
                                 <div className="flex items-center">
