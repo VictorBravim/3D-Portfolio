@@ -6,7 +6,7 @@ interface HeroProps {
     onLoad: () => void;
 }
 
-const MobileIframe = lazy(() => import('./MobileIframe'));
+const MobileImage = lazy(() => import('./MobileImage'));
 const DesktopIframe = lazy(() => import('./DesktopIframe'));
 
 const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
@@ -41,7 +41,7 @@ const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
                         <div className="loader"></div>
                     </div>
                 }>
-                    {isMobile !== null && (isMobile ? <MobileIframe onLoad={handleLoad} /> : <DesktopIframe onLoad={handleLoad} />)}
+                    {isMobile !== null && (isMobile ? <MobileImage onLoad={handleLoad} /> : <DesktopIframe onLoad={handleLoad} />)}
                 </Suspense>
             </div>
             {!loaded && (
