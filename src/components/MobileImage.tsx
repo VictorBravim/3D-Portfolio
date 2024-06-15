@@ -9,7 +9,7 @@ interface MobileImageProps {
 const MobileImage: React.FC<MobileImageProps> = ({ onLoad }) => {
     return (
         <Image 
-            src='/Mobile.png' 
+            src='/Mobile.webp' 
             alt='Mobile Image' 
             layout='fill' 
             objectFit='cover' 
