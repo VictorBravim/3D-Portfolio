@@ -7,6 +7,8 @@ import Image from 'next/image';
 import logo from '@/assets/Logo.webp';
 import About from './About';
 import Hero from './Hero';
+import Projects from "./Projects";
+import Contact from "./Contact";
 
 export default function Nav() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -97,7 +99,7 @@ export default function Nav() {
                             </button>
                         </div>
                     </div>
-                    <nav className="bg-transparent px-6 lg:px-0 py-10 fixed w-full lg:w-4/5 left-1/2 transform -translate-x-1/2 top-0 lg:rounded-b-xl z-10">
+                    <nav className="bg-black bg-opacity-50 px-6 lg:px-0 py-4 pt-6 fixed w-full lg:w-4/5 left-1/2 transform -translate-x-1/2 top-0 z-10">
                         <div className="max-w-8xl mx-auto flex justify-between items-center">
                             <div className="flex items-center flex-shrink-0 text-gray-custom">
                                 <Image src={logo} alt="Logo" width={35} height={50} priority className="w-auto h-auto mr-2 ml-4 lg:ml-0" />
@@ -150,6 +152,8 @@ export default function Nav() {
             )}
             <Hero language={language} onLoad={handleHeroLoad} />
             <About language={language} />
+            <Projects language={language} />
+            <Contact language={language} />
         </div>
     );
 }

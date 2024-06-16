@@ -53,7 +53,12 @@ const About: React.FC<AboutProps> = ({ language }) => {
     }, []);
 
     return (
-        <div id='about' className="bg-black text-white py-40 pt-48 px-5 md:px-20">
+        <div id='about' className="bg-black text-white py-40 pt-48 px-5 md:px-20" 
+          style={{ 
+            backgroundImage: "url('/bg.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}>
             <div className="container mx-auto flex flex-col space-y-10">
                 <FadeInSection>
                     <div className='flex flex-col lg:flex-row mb-12'>
