@@ -55,7 +55,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
     return (
         <div id='about' className="bg-black text-white py-40 pt-48 px-5 md:px-20" 
           style={{ 
-            backgroundImage: "url('/bg.png')",
+            backgroundImage: "url('/bg.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}>

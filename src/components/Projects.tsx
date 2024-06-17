@@ -2,15 +2,21 @@
 'use client';
 import React, { useState } from 'react';
 import { FaGithub, FaAngular, FaVuejs } from 'react-icons/fa';
-import { SiTypescript, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
+import { SiTypescript, SiNextdotjs, SiTailwindcss, SiFigma } from 'react-icons/si';
 import FadeInSection from './FadeInSection';
 import Image from 'next/image';
-import mymovies from '@/assets/mymovies.webp';
-import norishi from '@/assets/Norishi.webp';
+import truevr from '@/assets/truevr.webp';
+import amazonia from '@/assets/amazonia.webp';
 import exotics from '@/assets/exotics.webp';
-import webstore from '@/assets/webstore.webp'
-import cofty from '@/assets/cofty.webp';
+import piemaker from '@/assets/piemaker.webp';
+import norishi from '@/assets/Norishi.webp';
+import energetico from '@/assets/energetico.webp';
 import arenax from '@/assets/arenax.webp';
+import ice from '@/assets/ice.webp';
+import webstore from '@/assets/webstore.webp'
+import donuts from '@/assets/donuts.webp';
+import seton from '@/assets/seton.webp';
+import honey from '@/assets/honey.webp';
 
 interface ProjectsProps {
     language: string;
@@ -18,22 +24,46 @@ interface ProjectsProps {
 
 const projects = [
     {
-        title: 'Exotics',
-        description: 'Landing Page',
-        category: 'web',
-        imageUrl: exotics,
-        technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
-        liveUrl: 'https://exotics.vercel.app/',
-        repoUrl: 'https://github.com/VictorBravim/Exotics',
+        title: 'Honey Lab',
+        description: 'Template Design',
+        category: 'design',
+        imageUrl: honey,
+        technologies: [<SiFigma key="figma" />],
+        repoUrl: 'https://www.figma.com/community/file/1384313767560467008',
     },
     {
-        title: 'Cofty',
+        title: 'Seton',
+        description: 'Template',
+        category: 'web',
+        imageUrl: seton,
+        technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
+        liveUrl: 'https://seton-eight.vercel.app/',
+        repoUrl: 'https://github.com/VictorBravim/Seton',
+    },
+    {
+        title: 'Donuts',
+        description: 'Template Design',
+        category: 'design',
+        imageUrl: donuts,
+        technologies: [<SiFigma key="figma" />],
+        repoUrl: 'https://www.figma.com/community/file/1383198847410403213',
+    },
+    {
+        title: 'WebStore',
         description: 'Landing Page',
         category: 'web',
-        imageUrl: cofty,
+        imageUrl: webstore,
         technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
-        liveUrl: 'https://cofty.vercel.app/',
-        repoUrl: 'https://github.com/VictorBravim/Cafty',
+        liveUrl: 'https://web-store-pi.vercel.app/',
+        repoUrl: 'https://github.com/VictorBravim/WebStore',
+    },
+    {
+        title: 'Ice Bowl',
+        description: 'Template Design',
+        category: 'design',
+        imageUrl: ice,
+        technologies: [<SiFigma key="figma" />],
+        repoUrl: 'https://www.figma.com/community/file/1382103858417928308',
     },
     {
         title: 'ArenaX',
@@ -45,13 +75,12 @@ const projects = [
         repoUrl: 'https://github.com/VictorBravim/ArenaX',
     },
     {
-        title: 'WebStore',
-        description: 'Template',
-        category: 'web',
-        imageUrl: webstore,
-        technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
-        liveUrl: 'https://web-store-pi.vercel.app/',
-        repoUrl: 'https://github.com/VictorBravim/WebStore',
+        title: 'Energy Drink',
+        description: 'Template Design',
+        category: 'design',
+        imageUrl: energetico,
+        technologies: [<SiFigma key="figma" />],
+        repoUrl: 'https://www.figma.com/community/file/1373769409738713759',
     },
     {
         title: 'Norishi',
@@ -63,40 +92,38 @@ const projects = [
         repoUrl: 'https://github.com/VictorBravim/Norishi',
     },
     {
-        title: 'MyMovies',
-        description: 'Single Page',
+        title: 'PieMaker',
+        description: 'Template Design',
         category: 'design',
-        imageUrl: mymovies,
-        technologies: [<FaVuejs key="vue" />, <SiTypescript key="typescript" />, <SiTailwindcss key="tailwind" />],
-        liveUrl: 'https://my-movies-peach.vercel.app/',
-        repoUrl: 'https://github.com/VictorBravim/MyMovies',
+        imageUrl: piemaker,
+        technologies: [<SiFigma key="figma" />],
+        repoUrl: 'https://www.figma.com/community/file/1383959334677414269',
     },
     {
-        title: 'Project 7',
-        description: 'Design Project',
-        category: 'design',
-        imageUrl: mymovies,
-        technologies: [<FaVuejs key="vue" />, <SiTypescript key="typescript" />, <SiTailwindcss key="tailwind" />],
-        liveUrl: 'https://project7.vercel.app/',
-        repoUrl: 'https://github.com/VictorBravim/Project7',
-    },
-    {
-        title: 'Project 8',
-        description: 'Web Project',
+        title: 'Exotics',
+        description: 'Landing Page',
         category: 'web',
-        imageUrl: webstore,
-        technologies: [<FaAngular key="angular" />, <SiTypescript key="typescript" />, <SiTailwindcss key="tailwind" />],
-        liveUrl: 'https://project8.vercel.app/',
-        repoUrl: 'https://github.com/VictorBravim/Project8',
+        imageUrl: exotics,
+        technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
+        liveUrl: 'https://exotics.vercel.app/',
+        repoUrl: 'https://github.com/VictorBravim/Exotics',
     },
     {
-        title: 'Project 9',
-        description: 'Design Project',
+        title: 'Journey',
+        description: 'Template Design',
         category: 'design',
-        imageUrl: cofty,
+        imageUrl: amazonia,
+        technologies: [<SiFigma key="figma" />],
+        repoUrl: 'https://www.figma.com/community/file/1375209639027394437',
+    },
+    {
+        title: 'TrueVR',
+        description: 'Single Page',
+        category: 'web',
+        imageUrl: truevr,
         technologies: [<SiTypescript key="typescript" />, <SiNextdotjs key="nextjs" />, <SiTailwindcss key="tailwindcss" />],
-        liveUrl: 'https://project9.vercel.app/',
-        repoUrl: 'https://github.com/VictorBravim/Project9',
+        liveUrl: 'https://truevr.vercel.app/',
+        repoUrl: 'https://github.com/VictorBravim/TrueVR',
     },
 ];
 
@@ -113,7 +140,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
     return (
         <section id='projects' className="bg-black text-white p-10 py-32"
         style={{ 
-            backgroundImage: "url('/bg2.png')",
+            backgroundImage: "url('/bg2.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}>

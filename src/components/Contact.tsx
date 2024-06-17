@@ -62,7 +62,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
     return (
         <div id="contact" ref={ref} className={`bg-none py-20 h-full fade-in-section ${inView ? 'is-visible' : ''}`}
             style={{
-                backgroundImage: "url('/bg.png')",
+                backgroundImage: "url('/bg.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}>
