@@ -146,7 +146,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
           }}>
             <div className="container mx-auto">
                 <FadeInSection>
-                    <div className='flex flex-col lg:flex-row justify-between'>
+                    <div className='flex flex-col lg:flex-row justify-center lg:justify-between'>
                         <div className="flex justify-start mb-8">
                             <button
                                 className={`px-4 py-2 mr-2 ${filter === 'all' ? 'bg-white text-black' : 'text-white bg-transparent'} border border-white`}
@@ -172,7 +172,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
                             </button>
                         </div>
                         {visibleProjects < filteredProjects.length && (
-                            <div className="flex justify-end mb-8">
+                            <div className="flex lg:justify-end mb-8">
                                 <button
                                     className="bg-transparent text-white text-xl font-bold py-2 px-4 border border-white transition hover:bg-white hover:text-black"
                                     onClick={handleLoadMore}
