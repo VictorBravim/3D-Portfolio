@@ -6,7 +6,6 @@ interface HeroProps {
     onLoad: () => void;
 }
 
-const MobileImage = lazy(() => import('./MobileImage'));
 const DesktopIframe = lazy(() => import('./DesktopIframe'));
 
 const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
@@ -33,6 +32,10 @@ const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
         }
     }, []);
 
+    if (isMobile) {
+        return null; // Ocultar Hero em dispositivos móveis
+    }
+
     return (
         <div id='hero' className="relative flex justify-center items-center h-screen bg-black">
             <div className="absolute top-0 left-0 w-full h-full">
@@ -41,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
                         <div className="loader"></div>
                     </div>
                 }>
-                    {isMobile !== null && (isMobile ? <MobileImage onLoad={handleLoad} /> : <DesktopIframe onLoad={handleLoad} />)}
+                    <DesktopIframe onLoad={handleLoad} />
                 </Suspense>
             </div>
             {!loaded && (

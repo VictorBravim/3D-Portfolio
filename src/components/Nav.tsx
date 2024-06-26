@@ -15,6 +15,7 @@ export default function Nav() {
     const [heroLoaded, setHeroLoaded] = useState(false);
     const [activeSection, setActiveSection] = useState<string>('');
     const [language, setLanguage] = useState<string>('PT');
+    const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -22,6 +23,10 @@ export default function Nav() {
 
     const handleHeroLoad = () => {
         setHeroLoaded(true);
+    };
+
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
     };
 
     const handleScroll = () => {
@@ -42,11 +47,13 @@ export default function Nav() {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
-
+        window.addEventListener('resize', handleResize, { passive: true });
+        handleResize();
         handleScroll();
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
@@ -66,7 +73,7 @@ export default function Nav() {
 
     return (
         <div className="relative">
-            {heroLoaded && (
+            {(!isMobile || heroLoaded) && (
                 <div className="relative">
                     <div className={`lg:hidden w-full h-screen bg-black p-4 z-10 lg:p-6 fixed top-0 transition-transform duration-300 transform ${menuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
                         <div className="flex flex-col items-center mt-24 h-full">
