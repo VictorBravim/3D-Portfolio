@@ -22,18 +22,16 @@ const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
             setIsMobile(window.innerWidth <= 768);
         };
 
-        if (typeof window !== 'undefined') {
-            handleResize();
-            window.addEventListener('resize', handleResize, { passive: true });
+        handleResize();
+        window.addEventListener('resize', handleResize);
 
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            };
-        }
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     if (isMobile) {
-        return null; // Ocultar Hero em dispositivos móveis
+        return null;
     }
 
     return (

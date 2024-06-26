@@ -73,16 +73,10 @@ export default function Nav() {
 
     return (
         <div className="relative">
-            {(!isMobile || heroLoaded) && (
+            {(isMobile || heroLoaded) && (
                 <div className="relative">
                     <div className={`lg:hidden w-full h-screen bg-black p-4 z-10 lg:p-6 fixed top-0 transition-transform duration-300 transform ${menuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
                         <div className="flex flex-col items-center mt-24 h-full">
-                            <button
-                                className={`block mt-10 text-md font-light lg:inline-block lg:mt-0 cursor-pointer hover:text-gray-text mr-0 lg:mr-6 transition duration-500 
-                                ${activeSection === 'hero' ? 'text-gray-custom' : 'text-gray-text'}`}
-                                onClick={() => scrollToSection('hero')}>
-                                {language === 'PT' ? 'HOME' : 'HOME'}
-                            </button>
                             <button
                                 className={`block mt-10 text-md font-light lg:inline-block lg:mt-0 cursor-pointer hover:text-gray-text mr-0 lg:mr-6 transition duration-500 
                                 ${activeSection === 'about' ? 'text-gray-custom' : 'text-gray-text'}`}
@@ -101,7 +95,7 @@ export default function Nav() {
                                 onClick={() => scrollToSection('contact')}>
                                 {language === 'PT' ? 'CONTATO' : 'CONTACT'}
                             </button>
-                            <button className="mt-10 text-md font-light lg:inline-block lg:mt-0 cursor-pointer hover:text-gray-text transition duration-500" onClick={toggleLanguage}>
+                            <button className="mt-10 text-md font-light lg:inline-block lg:mt-0 border-b border-t border-white cursor-pointer hover:text-gray-text transition duration-500" onClick={toggleLanguage}>
                                 {language === 'PT' ? 'EN' : 'PT'}
                             </button>
                         </div>

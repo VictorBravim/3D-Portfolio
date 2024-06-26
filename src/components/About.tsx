@@ -53,7 +53,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
     }, []);
 
     return (
-        <div id='about' className="bg-black text-white py-40 pt-20 px-5 md:px-20" 
+        <div id='about' className="bg-black text-white py-20 lg:py-40 pt-28 lg:pt-48 px-5 md:px-20" 
           style={{ 
             backgroundImage: "url('/bg.webp')",
             backgroundSize: 'cover',

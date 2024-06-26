@@ -139,11 +139,11 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
 
     return (
         <section id='projects' className="bg-black text-white px-5 py-32"
-        style={{ 
-            backgroundImage: "url('/bg2.webp')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}>
+            style={{
+                backgroundImage: "url('/bg2.webp')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}>
             <div className="container mx-auto">
                 <FadeInSection>
                     <div className='flex flex-col lg:flex-row justify-center lg:justify-between'>
@@ -152,11 +152,11 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
                                 className={`px-4 py-2 mr-2 ${filter === 'all' ? 'bg-white text-black' : 'text-white bg-transparent'} border border-white`}
                                 onClick={() => setFilter('all')}
                             >
-                                    {language === 'PT' ? (
-                                        "Todos"
-                                    ) : (
-                                        "All"
-                                    )}
+                                {language === 'PT' ? (
+                                    "Todos"
+                                ) : (
+                                    "All"
+                                )}
                             </button>
                             <button
                                 className={`px-4 py-2 mx-2 ${filter === 'web' ? 'bg-white text-black' : 'text-white bg-transparent'} border border-white`}
@@ -206,7 +206,8 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
                                     </div>
                                     <div className="flex space-x-4">
                                         {project.liveUrl && (
-                                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-black text-xl font-bold py-2 px-4 transition hover:bg-gray-200">
+                                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="bg-white text-black text-xl font-bold py-2 px-4 transition hover
+                                            ">
                                                 Live Preview
                                             </a>
                                         )}
