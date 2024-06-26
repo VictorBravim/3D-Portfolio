@@ -138,7 +138,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
     const filteredProjects = filter === 'all' ? projects : projects.filter(project => project.category === filter);
 
     return (
-        <section id='projects' className="bg-black text-white p-10 py-32"
+        <section id='projects' className="bg-black text-white px-5 py-32"
         style={{ 
             backgroundImage: "url('/bg2.webp')",
             backgroundSize: 'cover',

@@ -66,7 +66,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}>
-            <div className="w-full lg:w-4/5 bg-black p-12 mx-auto px-4">
+            <div className="w-full lg:w-4/5 bg-black p-12 mx-auto px-5">
                 <div className="flex flex-col lg:flex-row">
                     <div className='flex w-full lg:w-1/2'>
                         <div className='hidden lg:flex' style={{ position: 'relative', width: '100%', height: '100%' }}>
