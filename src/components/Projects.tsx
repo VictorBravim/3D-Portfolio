@@ -194,7 +194,7 @@ const Projects: React.FC<ProjectsProps> = ({ language }) => {
                                 <Image
                                     src={project.imageUrl}
                                     alt={project.title}
-                                    className="w-full h-70 object-cover object-center group-hover:grayscale-0 transition duration-300"
+                                    className="w-full h-70 md:h-auto object-cover object-center group-hover:grayscale-0 transition duration-300"
                                 />
                                 <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-center items-center text-center p-4">
                                     <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
