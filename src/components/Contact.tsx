@@ -1,10 +1,10 @@
 // Contact.tsx
-'use client';
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useInView } from 'react-intersection-observer';
+import { FiMail, FiPhone } from 'react-icons/fi';
 
 interface ContactProps {
     language: string;
@@ -67,9 +67,19 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
                 backgroundPosition: 'center',
             }}>
             <div className="w-full lg:w-4/5 bg-black p-12 mx-auto px-5">
-                <div className="flex flex-col lg:flex-row">
-                    <div className='flex w-full lg:w-1/2'>
-                        <div className='hidden lg:flex' style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <div className="flex flex-col lg:flex-row lg:gap-12">
+                    <div className='flex w-full lg:w-1/2 flex-col'>
+                        <div className='hidden lg:flex flex-col'>
+                            <div className="w-full flex flex-col items-center justify-center bg-black text-gray-300 border border-white p-9 gap-2 mb-7">
+                                <FiMail className="text-3xl mb-2 text-white" />
+                                <p className="text-white text-xl font-semibold">Email</p>
+                                <p className="text-white text-xl">victorrafaelbravim@gmail.com</p>
+                            </div>
+                            <div className="w-full flex flex-col items-center justify-center bg-black text-gray-300 border border-white p-9 gap-2">
+                                <FiPhone className="text-3xl mb-2 text-white" />
+                                <p className="text-white text-xl font-semibold">WhatsApp</p>
+                                <p className="text-white text-xl">+55 12996839077</p>
+                            </div>
                         </div>
                     </div>
                     <div className="w-full lg:w-1/2">
