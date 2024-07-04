@@ -1,12 +1,9 @@
-// Hero.tsx
-import React, { useEffect, useState, Suspense, lazy } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface HeroProps {
     language: string;
     onLoad: () => void;
 }
-
-const DesktopIframe = lazy(() => import('./DesktopIframe'));
 
 const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
     const [isMobile, setIsMobile] = useState<boolean | null>(null);
@@ -37,13 +34,15 @@ const Hero: React.FC<HeroProps> = ({ language, onLoad }) => {
     return (
         <div id='hero' className="relative flex justify-center items-center h-screen bg-black">
             <div className="absolute top-0 left-0 w-full h-full">
-                <Suspense fallback={
-                    <div className="flex justify-center items-center h-full w-full">
-                        <div className="loader"></div>
-                    </div>
-                }>
-                    <DesktopIframe onLoad={handleLoad} />
-                </Suspense>
+                <iframe
+                    src='https://my.spline.design/untitled-3a40c92785ec96acc0872aa6f6c9934a/'
+                    frameBorder='0'
+                    width='100%'
+                    height='100%'
+                    className="w-full h-full"
+                    title="3D Model"
+                    onLoad={handleLoad}
+                ></iframe>
             </div>
             {!loaded && (
                 <div className="absolute top-0 left-0 w-full h-full bg-black flex justify-center items-center z-20">

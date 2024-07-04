@@ -100,7 +100,7 @@ export default function Nav() {
                             </button>
                         </div>
                     </div>
-                    <nav className="bg-black bg-opacity-50 px-6 lg:px-0 py-4 pt-6 fixed w-full lg:w-4/5 left-1/2 transform -translate-x-1/2 top-0 z-10">
+                    <nav className="bg-black bg-opacity-50 px-6 lg:px-48 py-4 pt-6 fixed w-full top-0 z-10">
                         <div className="max-w-8xl mx-auto flex justify-between items-center">
                             <div className="flex items-center flex-shrink-0 text-gray-custom">
                                 <Image src={logo} alt="Logo" width={35} height={50} priority className="w-auto h-auto mr-2 ml-4 lg:ml-0" />
